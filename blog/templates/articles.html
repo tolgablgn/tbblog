@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3>Makaleler</h3>
+<hr>
+<form action="">
+    {% csrf_token %}
+  <div class="input-group">
+    <input type="text" name= "keyword" class="col-xs-3" maxlength="64" placeholder="Search" >
+    <div class="input-group-append">
+      <button type="submit" class="btn btn-danger btn-sm">Ara</button>
+    </div>
+  </div>
+</form>
+{% if articles %}
+{% for article in articles %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <b><a href="{% url 'article:detail' article.id %}" style="color: black; text-decoration: None; background-color: white;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'" target="_blank" ><h2 class="fw-bolder mb-1">{{ article.title }}</h2></a></b>                   
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">{{article.created_date}}</div>
+                    <!-- Post categories-->
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">blog konusu</a>
+                    <!-- Author-->
+                    <p class="lead">
+                    {{article.author.username}} tarafından yazıldı.
+                    </p>
+                </header>
+                <!-- Preview image figure-->
+                {% if article.article_image %}
+                <img class="img-fluid rounded" src="{{article.article_image.url}}" alt="..." />
+
+                {% endif %}
+                
+                <!-- Post content-->
+                    <p class = "lead">
+                    {{article.content | safe | truncatewords:10 }}
+                       </p>
+                    <a style = "float : right; " right href="/articles/article/{{article.id}}" class = "btn btn-danger">Devamını oku..</a>
+                
+            </article>
+            <!-- Comments section-->
+            
+            
+        </div>
+
+
+
+{% endfor %}
+
+
+{% else %}
+<div class = "alert alert-danger">
+Bu blogta herhangi bir makale bulunamadı.
+</div>
+{% endif %}
+
+
+{% endblock body %}
+
+

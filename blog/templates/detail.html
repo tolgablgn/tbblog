@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="row">
+    <div class="container mt-5">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h3 class="fw-bolder mb-1">{{article.title}}</h3>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">{{article.created_date}}</div>
+                    <!-- Post categories-->
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">blog konusu</a>
+                    <!-- Author-->
+                    <p class="lead">by
+                    {{article.author.username}}
+                    </p>
+                </header>
+                <!-- Preview image figure-->
+                {% if article.article_image and article.article_image.url %}
+                    <img class="img-fluid rounded" src="{{article.article_image.url}}" alt="..." />
+                {% else %}
+                    <p>No image available</p>
+              
+
+                {% endif %}
+                
+                <!-- Post content-->
+                    <p class = "lead">
+                    {{article.content | safe}}
+                       </p>
+                
+            </article>
+            <hr>
+            <hr>
+            <br>
+            <h4>YORUMLAR:</h4>
+            <br>
+            <hr><hr>
+            <!-- Comments section -->
+
+
+
+        <!-- Comments section -->
+        {% if comments %}
+        {% for comment in comments %}
+        <div class="d-flex">
+                        <div class="flex-shrink-0 me-5"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                        <br><br>
+                        <div class="ms-3">
+                            <div class="fw-bold" style="font-weight: bold;"  >{{comment.comment_author}}</div>
+                            {{comment.comment_date}} <br>
+                            {{comment.comment_content}}
+                        </div>
+                    </div>
+        <hr>
+        {% endfor %}
+        <!-- Single comment-->
+                    
+        
+        {% else %}
+        <div class = "alert alert-danger">
+        Bu makalaye herhangi bir yorum yazılmamış.
+        </div>
+        {% endif %}
+
+
+                <form method="post" action="{% url 'article:comment' article.id %}">
+                    <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                        <div class="d-flex flex-wrap justify-content-between align-items-start">
+                            {% csrf_token %}
+                            <div class="form-outline flex-grow-1 me-3 mb-3 mb-md-0" style="max-width: 100%;">
+                                <input type="text" name="comment_author" class="form-control" style="background: #fff;" placeholder="Yazar İsmi" required>
+                            <div class="form-outline flex-grow-1 me-3 mb-3 mb-md-0" style="max-width: 100%;">
+                                <textarea name="comment_content" class="form-control h-auto" id="textAreaExample" style="background: #fff; resize: vertical; width: 290%; min-height: 10em;"></textarea>
+                                <label class="form-label" for="textAreaExample"></label>
+                            </div>
+                        </div>
+                        </div>
+                            <div class="mt-3">
+                            <button type="submit" class="btn btn-primary btn-sm">Yorum Ekle</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+
+                   
+
+{% endblock body %}
+
+

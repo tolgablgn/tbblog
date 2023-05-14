@@ -1,0 +1,51 @@
+TÜM DOSYA YAPILANMASININ NE İŞE YARDIĞINI AÇIKLAYAN NOT
+
+Article: Bu uygulamanın modellerini, görünümlerini ve URL'lerini içerir. Django'da uygulama, web uygulamasının 
+bir parçasıdır ve birden fazla uygulama olabilir. Bu uygulama özelinde, "Article" modeli makaleleri temsil eder,
+"views.py" dosyasında makaleleri görüntülemek için işlevler bulunur ve "urls.py" dosyası, makalelerin URL yapılandırmasını 
+belirler.
+
+Blog: Bu proje için ana Django uygulamasını temsil eder. "settings.py" dosyasında genel yapılandırmalar ve proje ayarları bulunur. 
+"urls.py" dosyası, proje düzeyindeki URL yapılandırmasını belirler. "wsgi.py" ve "asgi.py" dosyaları, web sunucusu tarafından uygulamayı 
+dağıtmak için kullanılan Python Web Sunucusu Aplikasyon Arayüzü (WSGI) ve Asenkronik Sunucu Aplikasyon Arayüzü (ASGI) protokollerini 
+tanımlar.
+
+Templates: Bu klasör, web sayfalarının görüntülenmesinde kullanılan HTML şablonlarını içerir. "layout.html" dosyası, diğer sayfalarda
+kullanılacak olan temel HTML şablonunu temsil ederken, "index.html" dosyası ana sayfa için bir şablon sağlar. "about.html", "login.html" 
+ve "register.html" dosyaları da diğer sayfalar için şablonlar sağlar. "includes" klasörü, tüm sayfalarda kullanılacak olan şablon 
+parçalarını içerir.
+
+User: Bu uygulama, kullanıcıların hesaplarını yönetmek için gerekli olan modelleri, görünümleri ve URL yapılandırmalarını içerir. 
+"models.py" dosyası, kullanıcıların kaydedileceği veritabanı modelini sağlar. "views.py" dosyası, kullanıcı kaydı ve girişi gibi 
+işlevleri sağlar. "urls.py" dosyası, kullanıcı hesaplarıyla ilgili URL yapılandırmasını sağlar.
+
+db.sqlite3: Bu dosya, projenin kullanılan SQLite veritabanını temsil eder. Veritabanı, makale ve kullanıcı verileri gibi proje 
+verilerini saklar.
+
+manage.py: Bu dosya, Django projesini yönetmek için kullanılan bir yönetim aracıdır. Örneğin, projeyi çalıştırmak veya veritabanını 
+oluşturmak gibi işlemleri yönetmek için kullanılabilir.
+
+pycache: Bu klasör, Python derlemelerinin önbelleğinde saklandığı bir klasördür. Derlemeler, Python kodunun çalıştırılabilir hale 
+getirilmiş sürümleridir.
+
+migrations: Bu klasör, Django'nun veritabanı modellerinde yapılan değişiklikleri takip etmek için kullandığı bir klasördür. 
+static: Bu klasör, projede kullanılan statik dosyaları (örneğin, CSS ve JavaScript dosyaları) içerir.
+
+init.py: Bu dosya, bir Python paketinin başlatıcı dosyasıdır ve paketin içeriğine dair bilgi sağlar.
+
+admin.py: Bu dosya, Django'nun yönetici paneli ile ilgili yapılandırmaları sağlar. Örneğin, makale ve kullanıcı modellerini yönetmek 
+için kullanılan arayüzleri sağlar.
+
+apps.py: Bu dosya, bir Django uygulamasının yapılandırmasını sağlar.
+
+models.py: Bu dosya, Django'nun ORM (Object-Relational Mapping) sistemi için kullanılan modelleri sağlar. Modeller, veritabanı 
+tablolarının yapısını belirler.
+
+tests.py: Bu dosya, Django uygulamalarının testlerini sağlar. Testler, uygulamanın beklenen davranışlarını doğrular.
+
+urls.py: Bu dosya, uygulamanın URL yapılandırmasını sağlar. URL yapılandırması, bir kullanıcının web sitesindeki sayfalara 
+erişimini sağlar.
+
+views.py: Bu dosya, uygulamanın işlevlerini sağlar. İşlevler, kullanıcının web sitesinde gezinirken gördüğü sayfaların 
+içeriğini oluşturur.
+

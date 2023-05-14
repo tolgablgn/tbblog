@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Kayıt Ol</h3>
+<hr>
+<form method = "POST">
+    {% csrf_token %} <!--- Bu etiket, Cross-Site Request Forgery (CSRF) saldırılarından korunmak için kullanılır.-->
+        {{form.as_p}}
+    <br>
+    <button type = "submit" class = "btn btn-danger">Kayıt Ol</button>
+
+</form>
+{% endblock body %}
